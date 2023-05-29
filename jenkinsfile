@@ -12,7 +12,7 @@ peline {
   stages {
     stage("Deploy to ECS"){
       steps {
-        sh "echo 'hello world"
+        sh "echo 'hello world!"
       }
     }
   }
