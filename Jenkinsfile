@@ -12,7 +12,7 @@ peline {
   stages {
     stage("Deploy to ECS"){
       steps {
-        sh "echo 'hello world from Jenkinsfile!!!"
+        sh "echo 'hello world from Jenkinsfile!"
       }
     }
   }
