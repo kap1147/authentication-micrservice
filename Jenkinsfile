@@ -1,5 +1,4 @@
-peline {
-  }
+pipeline {
   tools {
     maven 'Maven'
   }
