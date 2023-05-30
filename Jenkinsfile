@@ -1,7 +1,5 @@
 pipeline {
-  tools {
-    maven 'Maven'
-  }
+  agent any
   parameters {
     booleanParam(name: "IS_CLEANWORKSPACE", defaultValue: "true", description: "Set to false to disable folder cleanup, default true.")
     booleanParam(name: "IS_DEPLOYING", defaultValue: "true", description: "Set to false to skip deployment, default true.")
