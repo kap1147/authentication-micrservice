@@ -7,9 +7,9 @@ pipeline {
   }
 
   stages {
-    stage("Deploy to ECS"){
+    stage("Maven Test"){
       steps {
-        sh "echo 'hello world from Jenkinsfile!"
+        sh "echo 'hello world from Jenkinsfile!'"
       }
     }
   }
