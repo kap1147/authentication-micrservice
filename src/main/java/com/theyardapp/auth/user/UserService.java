@@ -16,7 +16,7 @@ public class UserService {
 
     public List<User> findAll(){return userRepository.findAll();}
 
-    public User findById(Long id){
+    public User findById(String id){
         if(userRepository.findById(id).isPresent()) return userRepository.findById(id).get();
         return null;
     }

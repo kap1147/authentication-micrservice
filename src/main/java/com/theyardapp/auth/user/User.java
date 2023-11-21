@@ -1,48 +1,40 @@
 package com.theyardapp.auth.user;
 
-import java.util.Collection;
-import java.util.List;
-
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @Builder @NoArgsConstructor @AllArgsConstructor
-@Entity
-@Table(name="_user")
-public class User implements UserDetails{
+import java.util.Collection;
+import java.util.List;
 
-    @Id
-    @GeneratedValue()
-    private Long id;
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Document(collection = "test-auth") 
+public class User implements UserDetails {
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Id 
+    private String id; 
+
     private String email;
-
     private String firstname;
-    
     private String lastname;
-
-    @Column(name = "username", nullable = false, unique = true)
     private String username;
-
-    @Column(name = "ip")
     private String ip;
-
     private String password;
-
-    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(this.id));
     }
 
     @Override
