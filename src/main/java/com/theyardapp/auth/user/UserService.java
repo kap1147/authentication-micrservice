@@ -21,6 +21,16 @@ public class UserService {
         return null;
     }
 
+    public User findByUsername(String username){
+        if(userRepository.findByUsername(username).isPresent()) return userRepository.findByUsername(username).get();
+        return null;
+    }
+
+    public UserProjection findIdByUsername(String username){
+        if(userRepository.findIdByUsername(username).isPresent()) return userRepository.findIdByUsername(username).get();
+        return null;
+    }
+
     public void save(User user) {
         userRepository.save(user);
     }

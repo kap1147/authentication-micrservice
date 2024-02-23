@@ -1,5 +1,6 @@
 package com.theyardapp.auth.user;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,7 +13,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -30,7 +33,8 @@ public class User implements UserDetails {
     private String username;
     // private String ip;
     private String password;
-    private Role role;
+    
+    private Set<Role> roles = new HashSet<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
