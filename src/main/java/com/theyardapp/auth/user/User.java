@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.UUID;
 import java.util.List;
 import java.util.Set;
 
@@ -24,8 +25,7 @@ import java.util.Set;
 @Document(collection = "test-auth") 
 public class User implements UserDetails {
 
-    @Id 
-    private String id; 
+    private String id;
 
     private String email;
     private String firstname;
@@ -38,7 +38,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(this.id));
+        return List.of(new SimpleGrantedAuthority(this.id.toString()));
     }
 
     @Override
