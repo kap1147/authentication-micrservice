@@ -8,8 +8,7 @@ spring:
     name: auth-microservice
   data:
     mongodb:
-      uri: mongodb://${AUTH_DB_HOST}:${AUTH_DB_PORT}/${AUTH_DB_NAME}?authMechanism=SCRAM-SHA-256
-
+      uri: mongodb://${DB_USER}:${DB_PASSWORD}@${AUTH_DB_HOST}:${AUTH_DB_PORT}/${DB_NAME}?authMechanism=SCRAM-SHA-256&authSource=admin
 logging:
   level:
     root: DEBUG

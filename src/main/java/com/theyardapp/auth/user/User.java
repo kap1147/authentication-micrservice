@@ -20,25 +20,27 @@ import java.util.Set;
 
 @Data
 @Builder
-@NoArgsConstructor
+// @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "test-auth") 
+@Document(collection = "auth-col") 
 public class User implements UserDetails {
 
-    private String id;
-
+    @Id
+    private String userId;
     private String email;
     private String firstname;
     private String lastname;
     private String username;
     // private String ip;
-    private String password;
-    
+    private String password; 
     private Set<Role> roles = new HashSet<>();
 
+    public User() {
+        this.userId = UUID.randomUUID().toString();
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(this.id.toString()));
+        return List.of(new SimpleGrantedAuthority(this.userId.toString()));
     }
 
     @Override

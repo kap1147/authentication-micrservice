@@ -32,7 +32,6 @@ public class UserService {
     }
 
     public void save(User user) {
-        user.setId(UUID.randomUUID().toString());
         userRepository.save(user);
     }
 }
