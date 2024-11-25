@@ -3,7 +3,7 @@ package com.theyardapp.auth.user;
 // import java.util.UUID;
 
 public interface UserProjection {
-    String getId();
+    String getuserId();
     // Add other properties if needed
 }
 
